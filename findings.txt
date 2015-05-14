@@ -1,0 +1,22 @@
+Braedon Big Mac McCoy
+Steven Fortier
+Pat Greene
+
+Roslyn C# Compiler
+
+Roslyn is the open sourced Microsoft C# and Visual Basic compiler.  It is a part of the .NET framework.  We are focusing on the C# compiler.
+
+Components:
+Scanner 			roslyn/src/Compilers/CSharp/Portable/Parser/QuickScanner.cs
+Lexer				src/Compilers/CSharp/Portable/Parser/Lexer.cs
+Tokenizer			roslyn/src/Compilers/CSharp/Portable/Parser/QuickScanner.cs
+Parser         		src/Compilers/CSharp/Portable/Parser/SyntaxParser.cs
+AST            		roslyn/src/Compilers/CSharp/Portable/Syntax/CSharpSyntaxTree.cs
+Optimization		roslyn/src/Compilers/Core/Portable/Compilation/OptimizationLevel.cs
+Code Generation 	src/Compilers/CSharp/Portable/CodeGen/CodeGenerator.cs
+
+Fun code:
+Microsoft isn’t fun so there aren’t any funny comments. However, there are a lot of useless files since this was written with Visual Studio and the compiler is in a folder called Portable.
+
+Notes: 
+The code for the Roslyn C# compiler was somewhat well laid out or organized and seemed to have some sort of organizational structure. There were files named in ways that made no sense. Also, there were some comments, but not nearly as many as would be expected for a Microsoft product. 
