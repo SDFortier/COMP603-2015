@@ -1,5 +1,20 @@
 = Compiler Design
 
+== May 27: Tree traversal with visitors
+
+http://en.wikipedia.org/wiki/Visitor_pattern[Visits?!? Well, that'd indicate visitors].
+
+Pull from upstream and study `in-class/AST.java`. Play code golf.
+
+== May 22: Moar hints & stuff
+
+See updated lab description and hints below.
+
+Also, your favorite language sucks, and here's why.
+
+* https://archive.org/details/wat_destroyallsoftware#[JavaScript and Ruby]
+* http://eev.ee/blog/2012/04/09/php-a-fractal-of-bad-design/[PHP]
+
 == May 21: Lab 2. Parsing Brainfuck
 
 === Preliminaries
@@ -32,7 +47,24 @@ Command -> '+' | '-' | '<' | '>' | ',' | '.'
 Loop -> '[' Sequence ']'
 ----
 
+Brainfuck in EBNF is:
+
+----
+Program -> Sequence
+
+Sequence -> ( Command | Loop | Comment ) *
+
+Command -> '+' | '-' | '<' | '>' | ',' | '.'
+
+Loop -> '[' Sequence ']'
+
+Comment -> any character other than '+' | '-' | '<' | '>' | ',' | '.' | '[' | ']'
+----
+
 === Hints
+
+The parser will probably be no longer than 20-30 lines; the solution is shorter than the problem statement.
+To read characters in a loop, `while(file >> c) { ... }`
 
 If your `C++` is rusty, see the http://www.cplusplus.com/reference/[C++ Reference].
 
