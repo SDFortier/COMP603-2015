@@ -18,7 +18,7 @@ using namespace std;
 /**
  * Primitive Brainfuck commands
  */
-typedef enum { 
+typedef enum {
     INCREMENT, // +
     DECREMENT, // -
     SHIFT_LEFT, // <
@@ -108,15 +108,28 @@ class Program : public Container {
 void parse(fstream & file, Container * container) {
     char c;
     // How to peek at the next character
-    c = (char)file.peek();
+    // c = (char)file.peek();
     // How to print out that character
-    cout << c;
+    // cout << c;
     // How to read a character from the file and advance to the next character
-    file >> c;
+    // file >> c;
     // How to print out that character
-    cout << c;
+    // cout << c;
     // How to insert a node into the container.
-    container->children.push_back(new CommandNode(c));
+    // container->children.push_back(new CommandNode(c));
+    while(file >> c) {
+        if(c == '<' || c == '>' || c == '.' || c == ',' || c == '_' || c == '-' || c == '+') {
+            container->children.push_back(new CommandNode(c));
+        }
+        else if(c == '[') {
+            Loop *loop = new Loop();
+            container->children.push_back(loop);
+            parse(file, loop);
+        }
+        else if(c == ']') {
+            return;
+        }
+    }
 }
 
 /**
